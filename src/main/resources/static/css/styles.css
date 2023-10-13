@@ -1,0 +1,58 @@
+/* Estilização para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilização para o container do jogo */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Estilização para o título do jogo */
+h1 {
+    font-size: 24px;
+}
+
+/* Estilização para o formulário */
+form {
+    margin-top: 20px;
+}
+
+/* Estilização para o campo de entrada de número */
+input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Estilização para o botão Adivinhar */
+button[type="submit"] {
+    padding: 8px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilização para a mensagem */
+p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
