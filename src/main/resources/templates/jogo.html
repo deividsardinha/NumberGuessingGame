@@ -2,19 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Guessing Game</title>
+    <title>Jogo de Adivinhação</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <body>
     <div class="container">
         <h1>Jogo de Adivinhação</h1>
-        <p>Tentativa #<span th:text="${attempts}"></span></p>
-        <form th:action="@{/guess}" method="post">
-            <input type="number" name="guess" required>
+        <p>Tentativa #<span th:text="${tentativas}"></span></p>
+        <form th:action="@{/adivinhar}" method="post">
+            <input type="number" name="palpite" required>
             <button type="submit">Adivinhar</button>
         </form>
-        <p th:text="${message}"></p>
+        <p th:text="${mensagem}"></p>
     </div>
 </body>
 </html>
+
 

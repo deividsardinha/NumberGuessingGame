@@ -9,31 +9,41 @@ import java.util.Random;
 @Controller
 public class GameController {
 
-    private int secretNumber;
-    private int attempts;
+    private int numeroSecreto;
+    private int tentativas;
 
     public GameController() {
-        // Initialize the secret number and the attempts counter
-        secretNumber = new Random().nextInt(100) + 1;
-        attempts = 0;
+        // Inicialize o número secreto e o contador de tentativas
+        numeroSecreto = new Random().nextInt(100) + 1;
+        tentativas = 0;
     }
 
-    @GetMapping("/game")
-    public String game(Model model) {
-        model.addAttribute("attempts", attempts);
-        return "game";
+    @GetMapping("/jogo")
+    public String jogo(Model model) {
+        model.addAttribute("tentativas", tentativas);
+        return "jogo";
     }
 
-    @PostMapping("/guess")
-    public String guess(int guess, Model model) {
-        attempts++;
-        if (guess == secretNumber) {
-            model.addAttribute("message", "Parabéns! Você acertou em " + attempts + " tentativas.");
-        } else if (guess < secretNumber) {
-            model.addAttribute("message", "Tente um número maior.");
+    @PostMapping("/adivinhar")
+    public String adivinhar(int palpite, Model model) {
+        tentativas++;
+        if (palpite == numeroSecreto) {
+            model.addAttribute("mensagem", "Parabéns! Você acertou em " + tentativas + " tentativas.");
+        } else if (palpite < numeroSecreto) {
+            model.addAttribute("mensagem", "Tente um número maior.");
         } else {
-            model.addAttribute("message", "Tente um número menor.");
+            model.addAttribute("mensagem", "Tente um número menor.");
         }
-        return "game";
+        return "jogo";
+    }
+
+    @GetMapping("/")
+    public String index(Model model) {
+        // Inicialize o número secreto e o contador de tentativas aqui
+        numeroSecreto = new Random().nextInt(100) + 1;
+        tentativas = 0;
+        model.addAttribute("tentativas", tentativas);
+        return "jogo";
     }
 }
+
